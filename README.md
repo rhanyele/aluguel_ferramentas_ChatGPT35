@@ -4,6 +4,10 @@ Este é um sistema web desenvolvido em Flask para gerenciar o aluguel de ferrame
 ## Objetivo
 Este projeto foi concebido com o propósito de explorar as capacidades de uma Inteligência Artificial, especificamente o modelo LLM (Language Learning Model), na criação de um sistema web funcional. O intuito era utilizar a IA como assistente no desenvolvimento, fornecendo orientações, sugestões e até mesmo o código necessário para a construção do sistema.
 
+## Prompts
+1- Atue como um product manager, você deve descrever um projeto para ser enviada para o time de desenvolvimento, o projeto é de locação de ferramentas
+2- Atue como um programador experiente que vai receber as funcionalidades de um projeto e escolha a linguagem e o banco de dados
+
 ## Funcionalidades
 Cadastro e gerenciamento de usuários
 Cadastro e gerenciamento de ferramentas
