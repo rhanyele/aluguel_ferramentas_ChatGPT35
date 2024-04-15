@@ -1,0 +1,53 @@
+<!-- usuarios.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Usuários</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        {% include 'menu.html' %}
+        
+        <div class="col-md-9">
+            <h1>Lista de Usuários</h1>
+
+            <a href="/cadastrar_usuario" class="btn btn-primary mb-3">Adicionar Usuário</a>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Email</th>
+                        <th>Telefone</th>
+                        <th>Endereço</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for usuario in usuarios %}
+                    <tr>
+                        <td>{{ usuario[0] }}</td>
+                        <td>{{ usuario[1] }}</td>
+                        <td>{{ usuario[2] }}</td>
+                        <td>{{ usuario[4] }}</td>
+                        <td>{{ usuario[5] }}</td>
+                        <td>
+                            <a href="/usuarios/{{ usuario[0] }}/editar" class="btn btn-info btn-sm">Editar</a>
+                            <form action="/usuarios/{{ usuario[0] }}/excluir" method="post" style="display: inline;">
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Deseja realmente excluir?')">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

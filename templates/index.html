@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página Inicial</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        {% include 'menu.html' %}
+        
+        <div class="col-md-9">
+            <h1>Bem-vindo, {{ session['usuario_nome'] }}</h1>
+            
+            <p>Esta é a página inicial da sua aplicação.</p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

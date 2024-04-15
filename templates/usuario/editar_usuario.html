@@ -1,0 +1,45 @@
+<!-- editar_usuario.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Usuário</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        {% include 'menu.html' %}
+        
+        <div class="col-md-9">
+            <h1>Editar Usuário</h1>
+            
+            <form action="/usuarios/{{ usuario[0] }}/editar" method="post">
+                <div class="form-group">
+                    <label>Nome:</label>
+                    <input type="text" name="nome" class="form-control" value="{{ usuario[1] }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Email:</label>
+                    <input type="email" name="email" class="form-control" value="{{ usuario[2] }}" required>
+                </div>
+                <div class="form-group">
+                    <label>Senha:</label>
+                    <input type="password" name="senha" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label>Telefone:</label>
+                    <input type="text" name="telefone" class="form-control" value="{{ usuario[4] }}">
+                </div>
+                <div class="form-group">
+                    <label>Endereço:</label>
+                    <textarea name="endereco" class="form-control">{{ usuario[5] }}</textarea>
+                </div>
+                <input type="submit" value="Salvar Alterações" class="btn btn-primary">
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

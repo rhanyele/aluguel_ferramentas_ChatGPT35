@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Ferramentas</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        {% include 'menu.html' %}
+        
+        <div class="col-md-9">
+            <h1>Lista de Ferramentas</h1>
+
+            <a href="/cadastrar_ferramenta" class="btn btn-primary mb-3">Adicionar Ferramenta</a>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ferramenta in ferramentas %}
+                    <tr>
+                        <td>{{ ferramenta[0] }}</td>
+                        <td>{{ ferramenta[1] }}</td>
+                        <td>{{ ferramenta[2] }}</td>
+                        <td>{{ ferramenta[3] }}</td>
+                        <td>
+                            <a href="/ferramentas/{{ ferramenta[0] }}/editar" class="btn btn-info btn-sm">Editar</a>
+                            <form action="/ferramentas/{{ ferramenta[0] }}/excluir" method="post" style="display: inline;">
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Deseja realmente excluir?')">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

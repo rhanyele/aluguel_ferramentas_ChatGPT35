@@ -1,0 +1,57 @@
+<!-- editar_reserva.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Reserva</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        {% include 'menu.html' %}
+        
+        <div class="col-md-9">
+            <h1>Editar Reserva</h1>
+            
+            <form method="post" action="{{ url_for('editar_reserva_route', id=reserva[0]) }}">
+                <div class="mb-3">
+                    <label for="ferramenta_id" class="form-label">Ferramenta</label>
+                    <select class="form-select" id="ferramenta_id" name="ferramenta_id">
+                        {% for ferramenta in ferramentas %}
+                            <option value="{{ ferramenta[0] }}" {% if ferramenta[0] == reserva[1] %}selected{% endif %}>{{ ferramenta[1] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="usuario_id" class="form-label">Usuário</label>
+                    <select class="form-select" id="usuario_id" name="usuario_id">
+                        {% for usuario in usuarios %}
+                            <option value="{{ usuario[0] }}" {% if usuario[0] == reserva[2] %}selected{% endif %}>{{ usuario[1] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="data_inicio" class="form-label">Data Início</label>
+                    <input type="date" class="form-control" id="data_inicio" name="data_inicio" value="{{ reserva[3] }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="data_fim" class="form-label">Data Fim</label>
+                    <input type="date" class="form-control" id="data_fim" name="data_fim" value="{{ reserva[4] }}" required>
+                </div>
+                <div class="mb-3">
+                    <label for="status" class="form-label">Status</label>
+                    <select class="form-select" id="status" name="status">
+                        <option value="Pendente" {% if reserva[5] == "Pendente" %}selected{% endif %}>Pendente</option>
+                        <option value="Confirmada" {% if reserva[5] == "Confirmada" %}selected{% endif %}>Confirmada</option>
+                        <option value="Cancelada" {% if reserva[5] == "Cancelada" %}selected{% endif %}>Cancelada</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Salvar</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

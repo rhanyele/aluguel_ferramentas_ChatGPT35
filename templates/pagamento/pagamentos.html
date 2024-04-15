@@ -1,0 +1,61 @@
+<!-- pagamentos.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pagamentos</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        {% include 'menu.html' %}
+        
+        <div class="col-md-9">
+            <h1>Lista de Pagamentos</h1>
+
+            <a href="/cadastrar_pagamento" class="btn btn-primary mb-3">Adicionar Pagamento</a>
+            
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ferramenta</th>
+                        <th>Usuário</th>
+                        <th>Data Início</th>
+                        <th>Data Fim</th>
+                        <th>Valor</th>
+                        <th>Forma de Pagamento</th>
+                        <th>Data de Pagamento</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pagamento in pagamentos %}
+                    <tr>
+                        <td>{{ pagamento[0] }}</td>
+                        <td>{{ pagamento[1] }}</td>
+                        <td>{{ pagamento[2] }}</td>
+                        <td>{{ pagamento[3] }}</td>
+                        <td>{{ pagamento[4] }}</td>
+                        <td>{{ pagamento[5] }}</td>
+                        <td>{{ pagamento[6] }}</td>
+                        <td>{{ pagamento[7] }}</td>
+                        <td>{{ pagamento[8] }}</td>
+                        <td>
+                            <a href="/pagamentos/{{ pagamento[0] }}/editar" class="btn btn-info btn-sm">Editar</a>
+                            <form action="/pagamentos/{{ pagamento[0] }}/excluir" method="post" style="display: inline;">
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Deseja realmente excluir?')">Excluir</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

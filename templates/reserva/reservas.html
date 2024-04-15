@@ -1,0 +1,55 @@
+<!-- reservas.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Reservas</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="row">
+        {% include 'menu.html' %}
+        
+        <div class="col-md-9">
+            <h1>Lista de Reservas</h1>
+            
+            <a href="/cadastrar_reserva" class="btn btn-primary mb-3">Adicionar Reserva</a>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Ferramenta</th>
+                        <th>Usuário</th>
+                        <th>Data Início</th>
+                        <th>Data Fim</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for reserva in reservas %}
+                    <tr>
+                        <td>{{ reserva[0] }}</td>
+                        <td>{{ reserva[1] }}</td>
+                        <td>{{ reserva[2] }}</td>
+                        <td>{{ reserva[3] }}</td>
+                        <td>{{ reserva[4] }}</td>
+                        <td>{{ reserva[5] }}</td>
+                        <td>
+                            <a href="/reservas/{{ reserva[0] }}/editar" class="btn btn-info btn-sm">Editar</a>
+                            <!--<form action="/reservas/{{ reserva[0] }}/excluir" method="post" style="display: inline;">
+                                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Deseja realmente excluir?')">Excluir</button>
+                            </form>-->
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!-- editar_pagamento.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Pagamento</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container mt-5">
+    <h1>Editar Pagamento</h1>
+    
+    <form method="post" action="{{ url_for('editar_pagamento_route', id=pagamento[0]) }}">
+        <div class="mb-3">
+            <label for="reserva_id" class="form-label">Reserva ID</label>
+            <input type="number" class="form-control" id="reserva_id" name="reserva_id" value="{{ pagamento[1] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="valor" class="form-label">Valor</label>
+            <input type="number" class="form-control" id="valor" name="valor" step="0.01" value="{{ pagamento[2] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="forma_pagamento" class="form-label">Forma de Pagamento</label>
+            <input type="text" class="form-control" id="forma_pagamento" name="forma_pagamento" value="{{ pagamento[3] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="data_pagamento" class="form-label">Data de Pagamento</label>
+            <input type="date" class="form-control" id="data_pagamento" name="data_pagamento" value="{{ pagamento[4] }}" required>
+        </div>
+        <div class="mb-3">
+            <label for="status" class="form-label">Status</label>
+            <input type="text" class="form-control" id="status" name="status" value="{{ pagamento[5] }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+
+</div>
+
+</body>
+</html>
